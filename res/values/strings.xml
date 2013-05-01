@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Avalon Quest Cards</string>
+    <string name="help">About</string>
+    <string name="exit">Exit</string>    
+</resources>

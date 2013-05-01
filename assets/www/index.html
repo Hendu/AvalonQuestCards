@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+		<script type="text/javascript" src="cordova-2.5.0.js"></script>
+		<script type="text/javascript">
+			document.addEventListener("deviceready", function () {
+				document.addEventListener("menubutton", menuKeyDown, true);
+			}, false);
+			function menuKeyDown() {
+				menuClick();
+			}
+		</script>
+		<title>Avalon Quest Cards</title>
+		<link rel="stylesheet" href="css/index.css" media="all" />
+		<link rel="stylesheet" href="css/meanmenu.css" media="all" />
+		<link rel="stylesheet" href="css/resistance.css" media="all" />
+	</head>
+	<body>
+		<script type="text/javascript" src="js/cordova-2.5.0.js"></script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/jquery.meanmenu.js"></script>
+		<script src="js/resistance.js"></script>
+		<script type="text/javascript">	
+			var windows = 1; // change to 1 when doing windows development
+			
+			app.initialize();
+			var local_count;
+			var is_master = false;
+			var players;
+			var votes = [];
+			var data_ref;
+			var perm_data_ref;
+			var room_id;
+			var perm_data = {};
+			var total_mission_players;
+			var total_players;
+			var local_mission_players;
+			var placeholders = '';
+			var sound = 1;
+			var game_type;
+			           
+		</script>
+		<header>
+			<nav>
+				<ul>
+					<li><a href="javascript:resetGame();menuClick()">Restart Game</a></li>
+					<li id="sound"><a href="javascript:toggleSound(0);menuClick();">Turn off Sound</a></li>
+					<li><a href="javascript:navigator.notification.alert('Avalon Quest Cards v1.0\n\n\u00A92013, Ryan Henderson\nryan.henderson.android@gmail.com');menuClick()">About</a>
+					</li>
+					<li><a href="javascript:navigator.app.exitApp();">Quit</a></li>
+				</ul>
+			</nav>
+		</header>
+		<div id="startpage" class="apppage">
+			<br>
+			<br>
+			<br>
+			<!--
+			<button onclick="startNetworkGame()">Start Network Game - 2 to 5 Devices</button>
+			<br>
+			or
+			<br>
+			<button onclick="joinNetworkGame()">Join Network Game</button>
+			<br>
+			or
+			<br>
+			-->
+			<button onclick="startLocalGame()">Start Local Game - 1 Device</button>
+		</div>
+		<!-- Network create page -->
+		<div id="networkcreatepage" class="apppage">
+			<div id="playeridmsg"></div>
+			<br>
+			<br>
+			<br>
+			<br>
+			Enter total number of players:<br>
+			<select name="totalnetworkplayers" id="totalnetworkplayers">
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+			</select>
+			<br>
+			<button onclick="startGame( 'network' )">Start Game</button>
+		</div>
+		<!-- Network join page -->
+		<div id="networkjoinpage" class="apppage">
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			Enter room code:<br>
+			<input type="text" maxlength="8" name="codeinput" id="codeinput">
+			<br>
+			<button onclick="joinGame( )">Join Game</button>
+			<br>
+			<br>
+			<div id="codestatus"></div>
+		</div>
+		<!-- Network create page -->
+		<div id="localcreatepage" class="apppage">
+			<br>
+			<br>
+			<br>
+			<br>
+			Enter total number of players:<br>
+			<select name="alllocalplayers" id="totallocalplayers">
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+			</select>
+			<br>
+			<button onclick="startGame( 'local' )">Start Game</button>
+		</div>		
+		<!-- Main Screen -->
+		<div id="mainboard" class="apppage">
+			<div id="roundcounter"></div>
+			<div id="roundresults">
+				<div id="round1" class="round"><img src="img/1.png" class="winloss" /></div>
+				<div id="round2" class="round"><img src="img/1.png" class="winloss" /></div>
+				<div id="round3" class="round"><img src="img/1.png" class="winloss" /></div>
+				<div id="round4" class="round"><img src="img/1.png" class="winloss" /></div>
+				<div id="round5" class="round"><img src="img/1.png" class="winloss" /></div>
+			</div>
+				<div id="noofplayers" class="jtextfill"><span>Number of mission players using this device:</span></div><br>
+				<select name="localmissionplayers" id="localmissionplayers" onchange="resetLocalCounter();">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+				</select>
+			<div id="cardcontainer">
+				<div id="card1"><a href="javascript:viewcards()"><img class="bigcards" src="img/back.png"></a></div>
+				<div id="card2"><a href="javascript:viewcards()"><img class="bigcards" src="img/back.png"></a></div>
+			</div>
+			<div id="votestatus">&nbsp;</div>
+			<div id="voteresults"></div>
+			<div id="othermessage"></div>
+			<div id="failsmessage"></div>
+			<button id="votereset" onclick="voteReset( 1 )">Reset Votes</button>
+		</div>
+		<div id="header">
+			<div id="iconcontainer" class="vertical"><img src="img/icon.png" id="icon" /></div>
+			<div id="title" class="vertical">Avalon Quest Cards</div>
+		</div>
+		<div id="blocker" class="apppage"></div>
+		<div id="spinner"><img src="img/ajax-loader.gif" /><br><span class="spinner">Synchronizing data...</div>
+	</body>
+</html>

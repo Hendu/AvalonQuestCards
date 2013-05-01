@@ -1,0 +1,189 @@
+body {
+    font-size: 40px;
+}
+
+br {
+    margin-bottom: 1%;
+    margin-top: 1%;
+}
+select, input {
+    width: 90%;
+    height: 5%;
+    margin-bottom: 1%;
+    /* font-size: 32px; */
+}
+option {
+    padding: 1%;
+}
+
+button {
+    background:#FEDA71;
+    background:-moz-linear-gradient(top,#FEDA71 0%,#FEBB49 100%);
+    background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#FEDA71),color-stop(100%,#FEBB49));
+    background:-webkit-linear-gradient(top,#FEDA71 0%,#FEBB49 100%);
+    background:-o-linear-gradient(top,#FEDA71 0%,#FEBB49 100%);
+    background:-ms-linear-gradient(top,#FEDA71 0%,#FEBB49 100%);
+    background:linear-gradient(top,#FEDA71 0%,#FEBB49 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#FEDA71',endColorstr='#FEBB49',GradientType=0);
+    padding:8px 18px;
+    color:#623F1D;
+    font-family:'Helvetica Neue',sans-serif;
+    border-radius:48px;
+    -moz-border-radius:48px;
+    -webkit-border-radius:48px;
+    border:1px solid #623F1D;
+    width: 90%;
+    left: 5%;
+}
+#mainboard {
+    visibility: hidden;
+    position: relative;
+}
+
+#networkcreatepage {
+    display: none;
+}
+
+#networkjoinpage {
+    display: none;
+}
+
+#localcreatepage {
+    display: none;
+}
+
+.apppage {
+    text-align: center;
+    position: relative;
+}
+
+#cardcontainer {
+    margin-top: 2%;
+    display: inline-block;
+    overflow: hidden;
+    width: 90%;	
+}
+#card1 {
+    width: 50%;
+    float: left;
+}
+#card2 {
+    width: 50%;
+    float: left;
+    overflow: hidden;
+}
+.bigcards {
+    width: 90%;
+}
+.smallcards {
+    margin: 1%;
+    width: 15%;
+}
+
+.winloss {
+    margin: 10px;
+}
+
+#noofplayers {
+    margin-top: 2%;
+    max-width: 90%;
+    max-height: 5%;
+    display: inline-block;
+}
+
+#votereset {
+    
+    position: absolute;
+    bottom: 2%;
+    
+}
+
+#blocker {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 999;
+    opacity: 0.7;
+    filter:alpha(opacity=70);
+    background-color: black;
+    display: none;
+}
+
+#spinner {
+    display: none;
+    text-align: center;
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    left: 50%;
+    top: 50%; 
+    margin-left: -175px;
+    margin-top: -175px;
+    color: white;
+    z-index: 1000;
+}
+
+.round {
+    float: left;
+}
+
+#roundresults{
+    display: inline-block;
+}
+
+#roundcounter {
+    font-size: 60px;
+    font-weight: bold;
+}
+#header {
+    height: 48px;
+    color: white;
+    font-size: 28px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 9999999;
+}
+.vertical {
+    line-height: 48px;
+}
+
+#iconcontainer {
+    float: left;
+}
+#icon {
+    margin: 4px;
+    height: 40px;
+    width: 40px;
+}
+#title {
+    margin-left: 4px;
+    float: left;
+}
+#menuicon {
+    float: right;
+}
+
+header nav {
+    text-align: center;
+    background: #efefef;
+}
+
+header nav ul {
+    margin: 0;
+    padding: 1em;
+    list-style-type: none;
+}
+
+header nav ul li {
+    display: inline;
+    margin-left: 1em;
+}
+
+header nav ul li:first-child {
+    margin-left: 0;
+}
+
+header nav ul li ul {
+    display: none;
+}			
