@@ -1,10 +1,33 @@
+header nav {
+    text-align: center;
+    background: #efefef;
+}
+
+header nav ul {
+    margin: 0;
+    padding: 1em;
+    list-style-type: none;
+}
+
+header nav ul li {
+    display: inline;
+    margin-left: 1em;
+}
+
+header nav ul li:first-child {
+    margin-left: 0;
+}
+
+header nav ul li ul {
+    display: none;
+}
+
 body {
     font-size: 40px;
 }
 
 br {
-    margin-bottom: 1%;
-    margin-top: 1%;
+    margin: 1%;
 }
 select, input {
     width: 90%;
@@ -58,7 +81,7 @@ button {
 }
 
 #cardcontainer {
-    margin-top: 2%;
+    margin-top: 1%;
     display: inline-block;
     overflow: hidden;
     width: 90%;	
@@ -73,7 +96,7 @@ button {
     overflow: hidden;
 }
 .bigcards {
-    width: 90%;
+    width: 75%;
 }
 .smallcards {
     margin: 1%;
@@ -85,17 +108,16 @@ button {
 }
 
 #noofplayers {
-    margin-top: 2%;
+    margin-top: 1%;
     max-width: 90%;
     max-height: 5%;
     display: inline-block;
 }
 
 #votereset {
-    
-    position: absolute;
-    bottom: 2%;
-    
+    position: fixed;
+    bottom: 20px;
+    z-index: 6;
 }
 
 #blocker {
@@ -164,26 +186,11 @@ button {
     float: right;
 }
 
-header nav {
-    text-align: center;
-    background: #efefef;
+#cutoff {
+    position:fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 50px;
+    z-index: 5;
+    background-color:#E4E4E4;
 }
-
-header nav ul {
-    margin: 0;
-    padding: 1em;
-    list-style-type: none;
-}
-
-header nav ul li {
-    display: inline;
-    margin-left: 1em;
-}
-
-header nav ul li:first-child {
-    margin-left: 0;
-}
-
-header nav ul li ul {
-    display: none;
-}			

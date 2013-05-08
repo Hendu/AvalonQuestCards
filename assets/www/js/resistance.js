@@ -34,7 +34,7 @@
 					w = $(window).height();
 					h = $(window).width();  
 				}    
-					$('#startpage').css( 'height', h - 48  );
+					$('#startpage').css( 'height', h - 48 );
 					$('#startpage').css( 'width', w );
 				} else {
 					$('#startpage').css( 'height', 1280 - 48 );
@@ -263,6 +263,7 @@
 					//$( '#roundcounter' ).html( 'Round ' + perm_data.round );
 					$( '#votereset' ).attr( 'onclick', 'voteReset( ' + perm_data.round + ' )' );
 					$( '#votereset' ).html( '<span class="alert">Continue to Quest ' + perm_data.round + '...</span>' );
+					$( '#localmissionplayers' ).val( votes_required[perm_data.total_players][perm_data.round] );
 				}
 				if ( perm_data.good_wins == 3 ){
 					alert( 'Good wins!' );
@@ -276,6 +277,7 @@
 				}
 				$('#votestatus').html( 'Success: ' + successes + ' - Fail: ' + fails );
 				$('#voteresults').html( voteresults );
+				
 			}
 
 			function resetLocalCounter(){
@@ -367,8 +369,8 @@
 		
 				} else {
 					total_players = $( '#totallocalplayers' ).val();
-					$( '#noofplayers' ).css( 'display', 'none' );
-					$( '#localmissionplayers' ).css( 'display', 'none' );
+					//$( '#noofplayers' ).css( 'display', 'none' );
+					//$( '#localmissionplayers' ).css( 'display', 'none' );
 					perm_data.exists = 1;
 					perm_data.round = 1;
 					perm_data.total_players = total_players;
@@ -377,6 +379,9 @@
 					local_count = votes_required[total_players][perm_data.round];
 				}
 				$( '#roundcounter' ).html( 'Quest ' + perm_data.round );
+				if ( is_master == true ) {
+					$( '#localmissionplayers' ).val( votes_required[perm_data.total_players][perm_data.round] );
+				}
 				renderRounds();
 				console.log( perm_data );
 			}
