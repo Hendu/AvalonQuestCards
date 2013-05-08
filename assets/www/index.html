@@ -24,15 +24,19 @@
 		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 		<script type="text/javascript" src="js/cordova-2.5.0.js"></script>
 		<script type="text/javascript">
+			var windows = 0; // change to 1 when doing windows development
 			document.addEventListener("deviceready", function () {
 				document.addEventListener("menubutton", menuKeyDown, true);
 				document.addEventListener("backbutton", backKeyDown, true);
+				if ( windows == 0 ) {
+					navigator.notification.alert( 'This app will keep your screen on until you close it. Make sure to close it when you are done to conserve your battery!', void(0), 'WARNING' )
+				} 
 			}, false);
 			function menuKeyDown() {
 				menuClick();
 			}
 			function backKeyDown() {
-				navigator.notification.alert( 'Exit the app by pressing the menu button (located on top right-hand corner of your screen if you do not have a menu button on your device), then press \'Quit\'' );
+				navigator.notification.alert( 'Exit the app by pressing the menu button (located on top right-hand corner of your screen), then press \'Quit\'', void(0), 'Notice' );
 			}
 		</script>
 		<title>Avalon Quest Cards</title>
@@ -46,7 +50,6 @@
 		<script src="js/jquery.meanmenu.js"></script>
 		<script src="js/resistance.js"></script>
 		<script type="text/javascript">	
-			var windows = 0; // change to 1 when doing windows development
 			
 			app.initialize();
 			var local_count;
@@ -68,9 +71,9 @@
 		<header>
 			<nav>
 				<ul>
-					<li id="sound"><a href="javascript:toggleSound(0);menuClick();">Turn off Sound</a></li>
+					<li id="sound"><a href="javascript:toggleSound(0)">Turn off Sound</a></li>
 					<li><a href="javascript:resetGame();menuClick()">Restart Game</a></li>
-					<li><a href="javascript:navigator.notification.alert('Avalon Quest Cards v1.0\n\n\u00A92013, Ryan Henderson\nryan.henderson.android@gmail.com');menuClick()">About</a>
+					<li><a href="javascript:navigator.notification.alert('\u00A92013, Ryan Henderson\nryan.henderson.android@gmail.com', void(0), 'Avalon Quest Cards v1.0');menuClick()">About</a>
 					</li>
 					<li><a href="javascript:navigator.app.exitApp();">Quit</a></li>
 				</ul>

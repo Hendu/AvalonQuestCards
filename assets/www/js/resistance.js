@@ -442,14 +442,11 @@
 			function menuClick(){
 				$('#clickme').trigger('click');
 			}
-			
+            		
 			$( document ).ready( function (){
 				resize();
 				$('.jtextfill').textfill({ maxFontPixels: 40 });
 				resizeothertext();
 				$('header nav').meanmenu();
 				blinks( 0 );
-                if ( windows == 0 ) {
-                    alert( 'WARNING:\n\nThis app will keep your screen on until you close it. Make sure to close it when you are done to conserve your battery!' )
-                }   
 			});
