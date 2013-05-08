@@ -20,6 +20,8 @@
 package com.rhenderson.ResistanceMissionCards;
 
 import android.os.Bundle;
+import android.view.WindowManager;
+
 import org.apache.cordova.*;
 
 public class ResistanceMissionCards extends DroidGap
@@ -28,6 +30,7 @@ public class ResistanceMissionCards extends DroidGap
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         // Set by <content src="index.html" /> in config.xml
         super.loadUrl(Config.getStartUrl());
         //super.loadUrl("file:///android_asset/www/index.html")

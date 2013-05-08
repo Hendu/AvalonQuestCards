@@ -26,9 +26,13 @@
 		<script type="text/javascript">
 			document.addEventListener("deviceready", function () {
 				document.addEventListener("menubutton", menuKeyDown, true);
+				document.addEventListener("backbutton", backKeyDown, true);
 			}, false);
 			function menuKeyDown() {
 				menuClick();
+			}
+			function backKeyDown() {
+				navigator.notification.alert( 'Exit the app by pressing the menu button (located on top right-hand corner of your screen if you do not have a menu button on your device), then press \'Quit\'' );
 			}
 		</script>
 		<title>Avalon Quest Cards</title>
@@ -42,7 +46,7 @@
 		<script src="js/jquery.meanmenu.js"></script>
 		<script src="js/resistance.js"></script>
 		<script type="text/javascript">	
-			var windows = 1; // change to 1 when doing windows development
+			var windows = 0; // change to 1 when doing windows development
 			
 			app.initialize();
 			var local_count;
@@ -59,7 +63,7 @@
 			var placeholders = '';
 			var sound = 1;
 			var game_type;
-			           
+		        
 		</script>
 		<header>
 			<nav>
