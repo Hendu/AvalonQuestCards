@@ -195,7 +195,7 @@
 			
 			function vote( result ){
 				$( '#votereset' ).html( 'Reset Votes' );
-				$( '#othermessage' ).html( '' );
+				$( '#othermessage' ).html( '&nbsp;' );
 				local_count--;
 				if ( local_count <= 0 ){
 					$( '#votestatus' ).html( "Local votes remaining: " + local_count );
@@ -300,7 +300,7 @@
 				if ( fails_required[total_players][rnd] == 2 ) {
 					$( '#failsmessage' ).html( '(Two fail cards required to fail)');
 				} else {
-					$( '#failsmessage' ).html( '' );
+					$( '#failsmessage' ).html( '&nbsp;' );
 				}
 				resetLocalCounter( );
 				if ( game_type == 'network' ) {
@@ -318,7 +318,7 @@
 				} else {
 					if ( typeof rnd !== 'undefined' ) {
 						if ( rnd == 0 ) {
-							$('#othermessage').html( '' );
+							$('#othermessage').html( '&nbsp;' );
 						}
 					} else {
 						$('#othermessage').html( 'Votes reset' );
@@ -369,8 +369,8 @@
 		
 				} else {
 					total_players = $( '#totallocalplayers' ).val();
-					//$( '#noofplayers' ).css( 'display', 'none' );
-					//$( '#localmissionplayers' ).css( 'display', 'none' );
+					$( '#noofplayers' ).css( 'visibility', 'hidden' );
+					$( '#localmissionplayers' ).css( 'visibility', 'hidden' );
 					perm_data.exists = 1;
 					perm_data.round = 1;
 					perm_data.total_players = total_players;
@@ -382,6 +382,7 @@
 				if ( is_master == true ) {
 					$( '#localmissionplayers' ).val( votes_required[perm_data.total_players][perm_data.round] );
 				}
+				$( '#votestatus' ).html( "Local votes remaining: " + local_count );
 				renderRounds();
 				console.log( perm_data );
 			}
@@ -405,7 +406,7 @@
 			}
 			
 			function viewcards() {
-				$( '#othermessage' ).html( '' );
+				$( '#othermessage' ).html( '&nbsp;' );
 				var cards = [ 'success', 'fail' ];
 				shuffle( cards );
 				$( '#cardcontainer' ).html( '<div id="card1"><a href="javascript:vote( \'' + cards[0] + '\')"><img class="bigcards" src="img/' + cards[0] + '.png"></a></div><div id="card2"><a href="javascript:vote( \'' + cards[1] + '\' )"><img class="bigcards" src="img/' + cards[1] + '.png"></a></div>' );		
@@ -428,9 +429,9 @@
 				placeholders = '';
 				$( '#mainboard' ).css( 'display', 'none' );
 				$( '#startpage' ).css( 'display', 'block' );
-				$( '#voteresults' ).html( '' );
+				$( '#voteresults' ).html( '&nbsp;' );
 				$( '#votestatus' ).html( '&nbsp;' );
-				$( '#othermessage' ).html( '' );
+				$( '#othermessage' ).html( '&nbsp;' );
 				$('#votereset').attr( 'onclick', 'voteReset( 1 )' );
 				$( '#votereset' ).html( 'Reset Votes' );
 			}
